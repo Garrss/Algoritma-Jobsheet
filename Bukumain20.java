@@ -16,5 +16,9 @@ public class Bukumain20 {
         Buku20 bk2 = new Buku20("Self Reward", "Maheera Ayesha", 160, 29, 59000);
         bk2.terjual(11);
         bk2.tampilInformasi();
+
+        Buku20 bk3 = new Buku20("Cinta di dalam Samudra", "Muhammad Tegar Hibatulloh", 1050, 1, 5000000);
+        bk3.terjual(1);
+        bk3.tampilInformasi();
     }
 }
