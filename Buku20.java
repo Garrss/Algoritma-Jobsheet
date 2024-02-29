@@ -38,19 +38,23 @@ public class Buku20 {
 
     int hitungHargaTotal(int jml) {
         return harga * jml;
+
     }
 
-    double hitungDiskon(int hrg) {
-        if (hrg > 150_000) {
-            return hrg * 0.12;
-        } else if (hrg <= 150_000 && hrg > 75_000) {
-            return hrg * 0.05;
+    int hitungDiskon(int jml) {
+        int diskon = 0;
+        int hargatotal = hitungHargaTotal(jml);
+        if (hargatotal >= 150000) {
+            diskon = (int) (0.12 * hargatotal);
+        } else if (hargatotal < 150000 && hargatotal >= 75000) {
+            diskon = (int) (0.05 * hargatotal);
         } else {
-            return hrg;
+            diskon = 0;
         }
+        return diskon;
     }
 
-    int hitungHargaBayar(int hrg, double diskon) {
-        return (int) (hrg - diskon);
+    int hitungHargaBayar(int jml) {
+        return hitungHargaTotal(jml) - hitungDiskon(jml);
     }
 }
