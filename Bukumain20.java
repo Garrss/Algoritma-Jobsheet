@@ -17,8 +17,12 @@ public class Bukumain20 {
         bk2.terjual(11);
         bk2.tampilInformasi();
 
-        Buku20 bk3 = new Buku20("Cinta di dalam Samudra", "Muhammad Tegar Hibatulloh", 1050, 1, 5000000);
-        bk3.terjual(1);
-        bk3.tampilInformasi();
+        Buku20 bukuTegar = new Buku20("Cinta di dalam Samudra", "Muhammad Tegar Hibatulloh", 1050, 8, 40000);
+        bukuTegar.terjual(3);
+        System.out.println(bukuTegar.hitungHargaTotal(3));
+        System.out.println(bukuTegar.hitungDiskon(bukuTegar.hitungHargaTotal(3)));
+        System.out.println(bukuTegar.hitungHargaBayar(bukuTegar.hitungHargaTotal(3), bukuTegar.hitungDiskon(3)));
+        bukuTegar.tampilInformasi();
+
     }
 }

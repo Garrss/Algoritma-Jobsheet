@@ -2,6 +2,18 @@ public class Buku20 {
     String judul, pengarang;
     int halaman, stok, harga;
 
+    public Buku20() {
+
+    }
+
+    public Buku20(String judul, String pengarang, int halaman, int stok, int harga) {
+        this.judul = judul;
+        this.pengarang = pengarang;
+        this.halaman = halaman;
+        this.stok = stok;
+        this.harga = harga;
+    }
+
     void tampilInformasi() {
         System.out.println("Judul: " + judul);
         System.out.println("Pengarang: " + pengarang);
@@ -20,35 +32,25 @@ public class Buku20 {
         stok += jml;
     }
 
-    void gantiharga(int hrg) {
-        harga = hrg;
+    int gantiharga(int hrg) {
+        return harga = hrg;
     }
 
     int hitungHargaTotal(int jml) {
         return harga * jml;
     }
 
-    int hitungDiskon(int jml) {
-        int diskon = 0;
-        int hargaTotal = hitungHargaTotal(jml);
-        if (hargaTotal >= 150000) {
-            diskon = (int) (0.12 * hargaTotal);
-        } else if (hargaTotal < 150000 && hargaTotal >= 75000)
-            diskon = (int) (0.05 * hargaTotal);
-        else
-            diskon = 0;
-        return diskon;
+    double hitungDiskon(int hrg) {
+        if (hrg > 150_000) {
+            return hrg * 0.12;
+        } else if (hrg <= 150_000 && hrg > 75_000) {
+            return hrg * 0.05;
+        } else {
+            return hrg;
+        }
     }
 
-    public Buku20() {
-
-    }
-
-    public Buku20(String jud, String pg, int hal, int stok, int har) {
-        judul = jud;
-        pengarang = pg;
-        halaman = hal;
-        this.stok = stok;
-        harga = har;
+    int hitungHargaBayar(int hrg, double diskon) {
+        return (int) (hrg - diskon);
     }
 }
