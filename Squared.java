@@ -1,5 +1,10 @@
 public class Squared {
-    public int num, Squared;
+    public int num, squared;
+
+    public Squared(int num, int squared) {
+        this.num = num;
+        this.squared = squared;
+    }
 
     public int squaredBF(int a, int n) {
         int result = 1;
