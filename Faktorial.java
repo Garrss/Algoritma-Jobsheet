@@ -1,10 +1,11 @@
 public class Faktorial {
+
     public int num;
 
     public int FaktorialBF(int n) {
         int fakto = 1;
         for (int i = 1; i <= n; i++) {
-            fakto = fakto * i;
+            fakto *= i;
         }
         return fakto;
     }
