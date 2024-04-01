@@ -1,3 +1,5 @@
+package Jobsheet6;
+
 import java.util.Scanner;
 
 public class Main {
@@ -5,7 +7,7 @@ public class Main {
 
         Scanner s1 = new Scanner(System.in);
         Scanner s2 = new Scanner(System.in);
-        HighAchieverStrudent data = new HighAchieverStrudent();
+        HighAchieverStudent data = new HighAchieverStudent();
         int n = 5;
 
         for (int i = 0; i < n; i++) {
@@ -18,7 +20,7 @@ public class Main {
             System.out.print("GPA = ");
             double gpa = s1.nextDouble();
 
-            Student s = new Student(name, year, age, gpa);
+            Students s = new Students(name, year, age, gpa);
             data.add(s);
 
             System.out.println("Unsorted student list: ");
@@ -26,8 +28,10 @@ public class Main {
             System.out.println("Data mahasiswa setelah sorting desc berdasar ipk=");
             data.bubblesort();
             data.print();
-
+            System.out.println("Ascending Sorted student list");
+            data.selectionSort();
+            data.print();
         }
-    }
 
+    }
 }

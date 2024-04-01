@@ -1,9 +1,11 @@
-public class HighAchieverStrudent {
-    Student list[] = new Student[5];
+package Jobsheet6;
+
+public class HighAchieverStudent {
+    Students list[] = new Students[5];
     int idx;
 
     // add method
-    void add(Student std) {
+    void add(Students std) {
         if (idx < list.length) {
             list[idx] = std;
             idx++;
@@ -14,7 +16,7 @@ public class HighAchieverStrudent {
 
     // print method
     void print() {
-        for (Student s : list) {
+        for (Students s : list) {
             s.print();
             System.out.println("=====================");
         }
@@ -26,12 +28,28 @@ public class HighAchieverStrudent {
             for (int j = 1; j < list.length - i; j++) {
                 if (list[j].gpa > list[j - 1].gpa) {
 
-                    Student tmp = list[j];
+                    Students tmp = list[j];
                     list[j] = list[j - 1];
                     list[j - 1] = tmp;
 
                 }
             }
+        }
+    }
+
+    // selection sort method
+    void selectionSort() {
+        for (int i = 0; i < list.length - 1; i++) {
+            int idxMin = i;
+            for (int j = i + 1; j < list.length; j++) {
+                if (list[j].gpa < list[idxMin].gpa) {
+                    idxMin = j;
+                }
+            }
+            // Swap
+            Students tmp = list[i];
+            list[idxMin] = list[i];
+            list[i] = tmp;
         }
     }
 }

@@ -1,9 +1,11 @@
-public class Student {
+package Jobsheet6;
+
+public class Students {
     String name;
     int entranceYear, age;
     double gpa;
 
-    Student(String n, int y, int a, double g) {
+    Students(String n, int y, int a, double g) {
         name = n;
         entranceYear = y;
         age = a;
@@ -11,10 +13,9 @@ public class Student {
     }
 
     void print() {
-        System.out.println("name = " + name);
+        System.out.println("Name = " + name);
         System.out.println("Entrance Year = " + entranceYear);
         System.out.println("Age = " + age);
         System.out.println("GPA = " + gpa);
     }
-
 }
