@@ -41,6 +41,6 @@ public class MainStudents {
 
         data.showPosition(Search, position);
 
-        data.showData(Search, position);
+        data.showData(null, position);
     }
 }

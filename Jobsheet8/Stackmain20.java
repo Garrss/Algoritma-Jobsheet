@@ -1,7 +1,6 @@
 package Jobsheet8;
 
-public class Stackmain20 {
-
+public class StackMain20 {
     public static void main(String[] args) {
         Stack20 stk = new Stack20(5);
 

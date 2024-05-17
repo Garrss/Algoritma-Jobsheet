@@ -36,27 +36,25 @@ public class SearchStudents {
     }
 
     public int findSeqSearch(int Search) {
-        int position = -1;
         for (int i = 0; i < listStd.length; i++) {
             if (listStd[i].nim == Search) {
-                position = i;
-                break;
+                return i;
             }
         }
-        return position;
+        return -1;
     }
 
     public void showPosition(int x, int pos) {
-        if (pos != -1) {
+        if (pos == -1) {
             System.out.println("Data : " + x + " is found in index-" + pos);
         } else {
-            System.out.println("Data :  " + x + " is not found");
+            System.out.println("Data :  " + x + " is not found" + pos);
         }
     }
 
-    public void showData(int x, int pos) {
+    public void showData(String x, int pos) {
         if (pos != -1) {
-            System.out.println("NIM \t : " + x);
+            System.out.println("NIM \t : " + listStd[pos].nim);
             System.out.println("Name \t : " + listStd[pos].name);
             System.out.println("Age \t : " + listStd[pos].age);
             System.out.println("IPK \t : " + listStd[pos].gpa);
