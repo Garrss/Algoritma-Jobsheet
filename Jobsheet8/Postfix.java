@@ -31,7 +31,7 @@ public class Postfix {
     }
 
     public boolean isOperator(char c) {
-        if (c == '^' || c == '%' || c == '*' || c == '-' || c == '+') {
+        if (c == '^' || c == '%' || c == '/' || c == '*' || c == '-' || c == '+') {
             return true;
         } else {
             return false;
