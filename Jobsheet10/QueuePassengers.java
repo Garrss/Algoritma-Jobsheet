@@ -103,4 +103,14 @@ public class QueuePassengers {
         }
         return data;
     }
+
+    public void peekRear() {
+        if (!IsEmpty()) {
+            System.out.println("The last element : " + Q[rear].name + " "
+                    + Q[rear].cityOrigin + " " + Q[rear].cityDestination + " " +
+                    Q[rear].ticketAmount + " " + Q[rear].price);
+        } else {
+            System.out.println("Queue is still empty");
+        }
+    }
 }
