@@ -100,6 +100,27 @@ public class SingleLinkedList {
         }
     }
 
+    public void insertBefore(int key, int input) {
+        if (isEmpty()) {
+            System.out.println("Linked list is empty");
+            return;
+        }
+        if (head.data == key) {
+            addfirst(input);
+            return;
+        }
+        Node20 temp = head;
+        while (temp.next != null && temp.next.data != key) {
+            temp = temp.next;
+        }
+        if (temp.next != null) {
+            Node20 ndInput = new Node20(input, temp.next);
+            temp.next = ndInput;
+        } else {
+            System.out.println("Key not found");
+        }
+    }
+
     public void removeFirst() {
         if (isEmpty()) {
             System.out.println("Linked list is empty. Cannot remove a data");

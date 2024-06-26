@@ -15,6 +15,8 @@ public class SLLMain {
         singLL.print();
         singLL.insertAt(3, 833);
         singLL.print();
+        singLL.insertBefore(760, 123);
+        singLL.print();
         System.out.println("Data in 1st index: " + singLL.getData(1));
         System.out.println("Data 3 is in index: " + singLL.indexOf(760));
         singLL.remove(999);
