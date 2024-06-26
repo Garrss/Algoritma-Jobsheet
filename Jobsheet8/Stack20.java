@@ -1,5 +1,3 @@
-package Jobsheet8;
-
 public class Stack20 {
 
     int size;

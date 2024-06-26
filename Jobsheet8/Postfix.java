@@ -1,5 +1,3 @@
-package Jobsheet8;
-
 public class Postfix {
     int n, top;
     char[] Stack;
