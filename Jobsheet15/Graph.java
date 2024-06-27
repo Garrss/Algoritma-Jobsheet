@@ -1,6 +1,8 @@
 package Jobsheet15;
 
 import java.util.LinkedList;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Graph {
     int vertex;
@@ -18,34 +20,35 @@ public class Graph {
 
     void addEdge(int source, int destination) {
         list[source].addFirst(destination);
-
-        list[destination].addFirst(source);
+        if (!isDirected) {
+            list[destination].addFirst(source);
+        }
     }
 
     void degree(int source) throws Exception {
-        System.out.println("degree vertex " + source + ": " + list[source].size());
-
-        int k, totalin = 0, totalout = 0;
-        for (int i = 0; i < vertex; i++) {
-            for (int j = 0; j < list[i].size(); j++) {
-                if (list[i].get(j) == source)
-                    ++totalin;
+        if (isDirected) {
+            int totalIn = 0, totalOut = list[source].size();
+            for (int i = 0; i < vertex; i++) {
+                if (i != source) {
+                    for (int j = 0; j < list[i].size(); j++) {
+                        if (list[i].get(j) == source) {
+                            totalIn++;
+                        }
+                    }
+                }
             }
-            for (k = 0; k < list[source].size(); k++) {
-                list[source].get(k);
-            }
-            totalout = k;
+            System.out.println("InDegree vertex " + source + " : " + totalIn);
+            System.out.println("OutDegree vertex " + source + " : " + totalOut);
+            System.out.println("Degree vertex " + source + " : " + (totalIn + totalOut));
+        } else {
+            System.out.println("Degree vertex " + source + " : " + list[source].size());
         }
-        System.out.println("InDegree vertex " + source + " : " + totalin);
-        System.out.println("OutDegree vertex " + source + " : " + totalout);
-        System.out.println("Degree vertex " + source + " : " + (totalin + totalout));
     }
 
     void removeEdge(int source, int destination) throws Exception {
-        for (int i = 0; i < vertex; i++) {
-            if (i == destination) {
-                list[source].remove(destination);
-            }
+        list[source].remove((Integer) destination);
+        if (!isDirected) {
+            list[destination].remove((Integer) source);
         }
     }
 
@@ -69,20 +72,52 @@ public class Graph {
         System.out.println(" ");
     }
 
-    public static void main(String[] args) throws Exception {
-        Graph graph = new Graph(6, false);
-        graph.addEdge(0, 1);
-        graph.addEdge(0, 4);
-        graph.addEdge(1, 2);
-        graph.addEdge(1, 3);
-        graph.addEdge(1, 4);
-        graph.addEdge(2, 3);
-        graph.addEdge(3, 4);
-        graph.addEdge(3, 0);
-        graph.printGraph();
-        graph.degree(2);
+    static Scanner sc = new Scanner(System.in);
 
-        graph.removeEdge(1, 2);
-        graph.printGraph();
+    static void menu() {
+        System.out.println("1. Add edge");
+        System.out.println("2. Degree");
+        System.out.println("3. Remove edge");
+        System.out.println("4. Remove all edges");
+        System.out.println("5. Print graph");
+        System.out.println("6. Exit");
+    }
+
+    public static void main(String[] args) throws Exception {
+        Random rand = new Random();
+        System.out.println("Enter the number of vertices");
+        int v = sc.nextInt();
+        System.out.println("Enter 1 for directed graph and 0 for undirected graph");
+        boolean isDirected = sc.nextInt() == 1;
+        Graph graph = new Graph(v, isDirected);
+        int choose;
+        do {
+            menu();
+            choose = sc.nextInt();
+            switch (choose) {
+                case 1:
+                    int source = rand.nextInt(v);
+                    int destination = rand.nextInt(v);
+                    graph.addEdge(source, destination);
+                    break;
+                case 2:
+                    System.out.println("Enter the source");
+                    source = sc.nextInt();
+                    graph.degree(source);
+                    break;
+                case 3:
+                    System.out.println("Enter the source and destination");
+                    source = sc.nextInt();
+                    destination = sc.nextInt();
+                    graph.removeEdge(source, destination);
+                    break;
+                case 4:
+                    graph.removeAllEdges();
+                    break;
+                case 5:
+                    graph.printGraph();
+                    break;
+            }
+        } while (choose != 6);
     }
 }
